@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
+    "module": "es2015",
+    "baseUrl": "./",
+    "paths": {
+      "@alfresco/adf-office-services-ext": [
+        "dist/@alfresco/adf-office-services-ext"
+      ],
+      "@alfresco/adf-office-services-ext/*": [
+        "dist/@alfresco/adf-office-services-ext/*"
+      ],
+      "@alfresco/aca-shared": ["dist/@alfresco/aca-shared"],
+      "@alfresco/aca-shared/*": ["dist/@alfresco/aca-shared/*"]
+    },
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules"],
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
+  }
+}
