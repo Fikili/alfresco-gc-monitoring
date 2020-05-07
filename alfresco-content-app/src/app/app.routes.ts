@@ -43,11 +43,6 @@ import { AdminPageComponent } from './components/gc-monitor/admin-page/admin-pag
 
 export const APP_ROUTES: Routes = [
   {
-    path: 'admin',
-    component: AdminPageComponent,
-    canActivate: [AuthGuardEcm]
-  },
-  {
     path: 'login',
     component: LoginComponent,
     data: {
@@ -84,6 +79,11 @@ export const APP_ROUTES: Routes = [
     component: AppLayoutComponent,
     canActivate: [AuthGuardEcm],
     children: [
+      {
+        path: 'admin',
+        component: AdminPageComponent,
+        canActivate: [AuthGuardEcm]
+      },
       {
         path: '',
         redirectTo: `/personal-files`,

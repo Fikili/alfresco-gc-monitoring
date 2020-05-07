@@ -171,7 +171,15 @@
                 "route": "favorite/libraries"
               }
             ]
+          },          {
+            "id": "app.navbar.libraries.admin",
+            "order": 300,
+            "icon": "star",
+            "title": "APP.BROWSE.LIBRARIES.MENU.ADMIN.SIDENAV_LINK.LABEL",
+            "description": "APP.BROWSE.LIBRARIES.MENU.ADMIN.SIDENAV_LINK.TOOLTIP",
+            "route": "admin"
           }
+
         ]
       },
       {

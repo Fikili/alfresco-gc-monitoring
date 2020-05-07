@@ -111,6 +111,13 @@
                             "LABEL": "Favorite Libraries",
                             "TOOLTIP": "Access my favorite libraries"
                         }
+                    },
+                    "ADMIN": {
+                        "TITLE": "Administration",
+                        "SIDENAV_LINK": {
+                            "LABEL": "Admin",
+                            "TOOLTIP": "Access my administration page"
+                        }
                     }
                 }
             },
