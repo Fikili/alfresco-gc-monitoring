@@ -39,4 +39,12 @@
             </list>
         </property>
     </bean>
+    
+    <bean id="com.tieto.alfresco.gc.monitor_messagesBootstrap" class="org.alfresco.i18n.ResourceBundleBootstrapComponent">
+		<property name="resourceBundles">
+			<list>
+				<value>alfresco.module.${project.artifactId}.messages.gc-monitor</value>
+			</list>
+		</property>
+	</bean>
 </beans>
