@@ -37,5 +37,23 @@
         <property name="nodeLocatorService" ref="nodeLocatorService" />
     </bean>
 
+	<!-- Service Report bean -->
+	<bean id="com.tieto.alfresco.gc.monitor_ReportService" class="com.tieto.alfresco.gc.monitor.service.ReportServiceImpl">
+		<property name="reportStorage" ref="com.tieto.alfresco.gc.monitor_ReportStorage" />
+		<property name="transactionHelper" ref="retryingTransactionHelper"/>
+		<property name="containers">
+			<map>
+				<entry key="GC_PLOT" value="${gc.monitor.container.plot}" />
+				<entry key="GC_EASY" value="${gc.monitor.container.easy}" />
+			</map>
+		</property>
+	</bean>
 
+	<bean id="com.tieto.alfresco.gc.monitor_ReportStorage" class="com.tieto.alfresco.gc.monitor.storage.ReportStorageImpl">
+		<property name="repositoryHelper" ref="repositoryHelper"/>
+		<property name="namespaceService" ref="NamespaceService"/>
+    	<property name="nodeService" ref="nodeService"/>
+		<property name="contentService" ref="contentService"/>
+		<property name="permissionService" ref="permissionService"/>
+	</bean>
 </beans>
