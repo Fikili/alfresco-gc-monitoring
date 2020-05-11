@@ -50,6 +50,10 @@ services:
     volumes:
       - gc-monitor-ass-volume:/opt/alfresco-search-services/contentstore
       - gc-monitor-ass-volume:/opt/alfresco-search-services/data
+  gc-plot:
+    image: gcplot/gcplot
+    ports:
+      - "${gcplot.port}:80"
 volumes:
   gc-monitor-acs-volume:
     external: true
