@@ -41,7 +41,10 @@
 	</bean>
 	
 	<bean id="com.tieto.alfresco.gc.monitor.easy_GCLogTaskJobExecutor" class="com.tieto.alfresco.gc.monitor.scheduler.task.GCLogProcessJobsTaskImpl" >
-		<property name="type" value="GC_PLOT" />
+		<property name="type" value="GC_EASY" />
+		<property name="gcAppUrl"	value="${gc.monitor.job.easy.url}" />
+		<property name="gcAppToken"	value="${gc.monitor.job.easy.token}" />
+		<property name="reportService" ref="com.tieto.alfresco.gc.monitor_ReportService" />
 	</bean>
 	
 	<!-- Job scheduler for CGPlot -->
@@ -72,5 +75,8 @@
 	
 	<bean id="com.tieto.alfresco.gc.monitor.plot_GCLogTaskJobExecutor" class="com.tieto.alfresco.gc.monitor.scheduler.task.GCLogProcessJobsTaskImpl" >
 		<property name="type" value="GC_PLOT" />
+		<property name="gcAppUrl"	value="${gc.monitor.job.plot.url}" />
+		<property name="gcAppToken"	value="${gc.monitor.job.plot.token}" />
+		<property name="reportService" ref="com.tieto.alfresco.gc.monitor_ReportService" />
 	</bean>
 </beans>
