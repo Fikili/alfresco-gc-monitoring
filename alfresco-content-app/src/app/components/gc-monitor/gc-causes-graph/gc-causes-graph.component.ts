@@ -38,28 +38,32 @@ export class GcCausesGraphComponent implements OnInit {
   constructor(private gcService: GcServiceService) {}
 
   ngOnInit() {
-    const nodes = this.gcService.getChildren();
-    nodes.subscribe(children => {
-      children.list.entries.forEach(element => {
-        const nodeId = element.entry.id;
-        const nodeContent = this.gcService.getContent(nodeId);
-        nodeContent.subscribe(content => {
-          const graphData: Array<any> = new Array<any>();
-          const causes = content.gcCauses;
-          causes.forEach(cause => {
+    const nodes = this.gcService.getChildrenContent();
+    nodes.subscribe(content => {
+      console.log(content);
+      const graphData: Array<any> = new Array<any>();
+      content.forEach(element => {
+        const causes = element.gcCauses;
+        causes.forEach(cause => {
+          const index = graphData.findIndex(e => cause.cause === e[0]);
+          if (index > -1) {
+            const originalCount = graphData[index][1];
+            graphData[index][1] = originalCount + cause.count;
+          } else {
             const obj = [cause.cause, cause.count];
             graphData.push(obj);
-          });
-          this.chartOptions.series = [
-            {
-              type: 'pie',
-              name: 'Garbage collection causes',
-              data: [...graphData]
-            }
-          ];
-          this.updateFromInput = true;
+          }
         });
       });
+      console.log(graphData);
+      this.chartOptions.series = [
+        {
+          type: 'pie',
+          name: 'Garbage collection causes',
+          data: [...graphData]
+        }
+      ];
+      this.updateFromInput = true;
     });
   }
 }
