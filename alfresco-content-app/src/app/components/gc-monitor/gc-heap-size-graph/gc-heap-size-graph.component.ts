@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { GcServiceService } from '../../../services/gc-service.service';
-import { concatMap } from 'rxjs/operators';
-import { Observable, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'aca-gc-heap-size-graph',
